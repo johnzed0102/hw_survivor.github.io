@@ -1,66 +1,395 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Johnny's Coding Blog</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background: #f7f7f7;
-        }
-        header {
-            background: black;
-            color: white;
-            padding: 40px;
-            text-align: center;
-        }
-        main {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 20px;
-        }
-        .card {
-            background: white;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-        }
-        a {
-            text-decoration: none;
-            color: #0077cc;
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Johnny’s Coding Blog</title>
+  <meta name="description" content="BST236 · The Legendary HW Survivor · Epic Code Master with AI" />
+  <meta name="color-scheme" content="dark light" />
+  <style>
+    /* --- Apple-ish system font stack (clean, neutral) --- */
+    :root{
+      --bg0: #05070c;
+      --bg1: #070a12;
+      --text: rgba(255,255,255,.88);
+      --muted: rgba(255,255,255,.60);
+      --faint: rgba(255,255,255,.38);
+      --stroke: rgba(255,255,255,.12);
+      --stroke2: rgba(255,255,255,.08);
+      --glass: rgba(255,255,255,.06);
+      --glass2: rgba(255,255,255,.04);
+
+      /* restrained sci-fi accents */
+      --a1: #7c5cff;     /* violet */
+      --a2: #32d6ff;     /* cyan */
+      --a3: #00ffa8;     /* mint */
+      --shadow: 0 16px 50px rgba(0,0,0,.45);
+      --radius: 18px;
+    }
+
+    *{ box-sizing: border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      color: var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+                   "SF Pro Display","SF Pro Text","Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.45;
+      background:
+        radial-gradient(900px 500px at 14% 12%, rgba(124,92,255,.16), transparent 55%),
+        radial-gradient(700px 420px at 82% 18%, rgba(50,214,255,.14), transparent 55%),
+        radial-gradient(900px 650px at 55% 90%, rgba(0,255,168,.10), transparent 60%),
+        linear-gradient(180deg, var(--bg0), var(--bg1) 70%, #04060b);
+      overflow-x:hidden;
+    }
+
+    /* subtle animated grain + scanline (very light, not “gamer”) */
+    .fx{
+      pointer-events:none;
+      position:fixed; inset:0;
+      background:
+        linear-gradient(to bottom, rgba(255,255,255,.028), rgba(255,255,255,0) 28%, rgba(255,255,255,.02)),
+        repeating-linear-gradient(to bottom, rgba(255,255,255,.02) 0px, rgba(255,255,255,.02) 1px, transparent 2px, transparent 6px);
+      mix-blend-mode: overlay;
+      opacity:.10;
+      transform: translateZ(0);
+      animation: drift 10s ease-in-out infinite;
+    }
+    @keyframes drift{
+      0%,100%{ transform: translate3d(0,0,0); }
+      50%{ transform: translate3d(0,-10px,0); }
+    }
+
+    .wrap{
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 28px 22px 70px;
+    }
+
+    header{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 18px;
+      padding: 14px 2px 26px;
+    }
+
+    .brand{
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+      min-width: 280px;
+    }
+
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 13px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    .dot{
+      width:8px; height:8px; border-radius:999px;
+      background: radial-gradient(circle at 30% 30%, #fff, rgba(255,255,255,.18) 60%, transparent 70%),
+                  linear-gradient(135deg, var(--a2), var(--a1));
+      box-shadow: 0 0 22px rgba(50,214,255,.22), 0 0 26px rgba(124,92,255,.18);
+      opacity:.9;
+    }
+
+    h1{
+      margin:0;
+      font-size: clamp(34px, 4.6vw, 56px);
+      letter-spacing: -0.03em;
+      line-height: 1.02;
+    }
+    .subtitle{
+      margin:0;
+      color: var(--muted);
+      font-size: 15px;
+      max-width: 56ch;
+    }
+
+    .meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px;
+      justify-content:flex-end;
+      margin-top: 4px;
+    }
+    .pill{
+      border: 1px solid var(--stroke2);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      color: var(--muted);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 12.5px;
+      letter-spacing: .02em;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .hero{
+      margin-top: 10px;
+      border: 1px solid var(--stroke2);
+      background: linear-gradient(180deg, var(--glass), rgba(255,255,255,.03));
+      border-radius: calc(var(--radius) + 10px);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .hero::before{
+      content:"";
+      position:absolute; inset:-1px;
+      background: radial-gradient(900px 350px at 10% 0%, rgba(124,92,255,.18), transparent 60%),
+                  radial-gradient(700px 350px at 90% 10%, rgba(50,214,255,.16), transparent 60%);
+      opacity:.9;
+      pointer-events:none;
+    }
+    .hero-inner{
+      position:relative;
+      padding: 22px 22px 18px;
+      display:flex;
+      flex-wrap:wrap;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap: 16px;
+    }
+    .hero-title{
+      margin:0;
+      font-size: 14px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .hero-line{
+      margin: 8px 0 0;
+      font-size: 16px;
+      color: var(--text);
+      max-width: 70ch;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 14px;
+      padding: 16px;
+    }
+
+    .card{
+      grid-column: span 6;
+      border: 1px solid var(--stroke2);
+      background: linear-gradient(180deg, var(--glass2), rgba(255,255,255,.02));
+      border-radius: var(--radius);
+      padding: 16px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      position:relative;
+      overflow:hidden;
+    }
+    .card::after{
+      content:"";
+      position:absolute;
+      inset:-1px;
+      background: radial-gradient(500px 260px at 0% 0%, rgba(50,214,255,.12), transparent 55%),
+                  radial-gradient(500px 260px at 100% 0%, rgba(124,92,255,.10), transparent 55%);
+      opacity:.55;
+      pointer-events:none;
+    }
+    .card > *{ position:relative; }
+
+    .card h2{
+      margin: 0 0 6px;
+      font-size: 18px;
+      letter-spacing: -0.015em;
+    }
+    .card p{
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 60ch;
+    }
+
+    .actions{
+      display:flex;
+      gap: 10px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--stroke);
+      text-decoration:none;
+      color: var(--text);
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+      transition: transform .16s ease, border-color .16s ease, background .16s ease;
+      will-change: transform;
+      user-select:none;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      border-color: rgba(255,255,255,.22);
+      background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.04));
+    }
+    .btn.primary{
+      border-color: rgba(50,214,255,.30);
+      background: linear-gradient(135deg, rgba(50,214,255,.18), rgba(124,92,255,.12));
+      box-shadow: 0 0 0 1px rgba(50,214,255,.10) inset;
+    }
+    .btn.primary:hover{
+      border-color: rgba(50,214,255,.50);
+    }
+    .chev{
+      opacity:.75;
+      font-size: 14px;
+    }
+
+    .card.small{
+      grid-column: span 3;
+      min-height: 160px;
+    }
+
+    .label{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      margin-bottom: 8px;
+      color: var(--faint);
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    footer{
+      margin-top: 18px;
+      padding: 14px 6px 0;
+      color: var(--faint);
+      font-size: 12.5px;
+      display:flex;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      gap: 10px;
+    }
+    footer a{ color: var(--muted); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.18); }
+    footer a:hover{ color: var(--text); border-bottom-color: rgba(255,255,255,.36); }
+
+    /* responsive */
+    @media (max-width: 860px){
+      .card{ grid-column: span 12; }
+      .card.small{ grid-column: span 12; }
+      header{ flex-direction:column; align-items:flex-start; }
+      .meta{ justify-content:flex-start; }
+    }
+
+    /* respect reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      .fx{ animation:none; }
+      .btn{ transition:none; }
+      .btn:hover{ transform:none; }
+    }
+  </style>
 </head>
+
 <body>
+  <div class="fx"></div>
 
-<header>
-    <h1>Johnny's Coding Blog</h1>
-    <p>BST236 · The Legendary HW Survivor · Epic Coding Matster with AI</p>
-</header>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="kicker"><span class="dot"></span> CODING BLOG</div>
+        <h1>Johnny’s Coding Blog</h1>
+        <p class="subtitle">BST236 · The Legendary HW Survivor · Epic Code Master with AI.</p>
+      </div>
 
-<main>
+      <div class="meta">
+        <div class="pill">GitHub Pages</div>
+        <div class="pill">AI-assisted builds</div>
+        <div class="pill">Expandable layout</div>
+      </div>
+    </header>
 
-    <div class="card">
-        <h2>Valentine Pac-Man</h2>
-        <p>A Valentine-themed Pac-Man game built with AI assistance.</p>
-        <a href="./pacman/">Play the Game →</a>
-    </div>
+    <section class="hero">
+      <div class="hero-inner">
+        <div>
+          <div class="hero-title">Now shipping</div>
+          <p class="hero-line">Two interactive builds: a Valentine Pac-Man game and an auto-updating arXiv feed. More posts will land here in future assignments.</p>
+        </div>
+        <div class="actions">
+          <a class="btn primary" href="./pacman/"><span>Play Pac-Man</span><span class="chev">→</span></a>
+          <a class="btn" href="./arxiv/"><span>View arXiv Feed</span><span class="chev">→</span></a>
+        </div>
+      </div>
 
-    <div class="card">
-        <h2>Auto-updating arXiv Feed</h2>
-        <p>Latest research papers powered by Copilot CLI and GitHub Actions.</p>
-        <a href="./arxiv/">View Papers →</a>
-    </div>
+      <div class="grid">
+        <article class="card">
+          <div class="label">Project · Game</div>
+          <h2>Valentine Pac-Man</h2>
+          <p>Classic maze, pellets, ghosts — plus a rose power-up that enables continuous heart projectiles to eliminate ghosts.</p>
+          <div class="actions">
+            <a class="btn primary" href="./pacman/">Open game <span class="chev">→</span></a>
+          </div>
+        </article>
 
-    <div class="card">
-        <h2>Future Posts</h2>
-        <p>This blog will be expanded in future assignments.</p>
-    </div>
+        <article class="card">
+          <div class="label">Project · Agentic</div>
+          <h2>Auto-updating arXiv Feed</h2>
+          <p>Latest papers by keyword, rendered as a clean feed with title, authors, abstract, and PDF link. Updated nightly by GitHub Actions.</p>
+          <div class="actions">
+            <a class="btn primary" href="./arxiv/">Open feed <span class="chev">→</span></a>
+          </div>
+        </article>
 
-</main>
+        <article class="card small">
+          <div class="label">Blog</div>
+          <h2>Posts</h2>
+          <p>Reserved for future write-ups and tutorials.</p>
+          <div class="actions">
+            <a class="btn" href="./posts/">Coming soon <span class="chev">→</span></a>
+          </div>
+        </article>
 
+        <article class="card small">
+          <div class="label">Repo</div>
+          <h2>Source</h2>
+          <p>Prompts, workflows, and code are tracked in Git.</p>
+          <div class="actions">
+            <!-- Optional: replace with your actual repo URL -->
+            <a class="btn" href="https://github.com/johnzed0102/hw_survivor.github.io">View on GitHub <span class="chev">↗</span></a>
+          </div>
+        </article>
+
+        <article class="card small">
+          <div class="label">Status</div>
+          <h2>Nightly Update</h2>
+          <p>arXiv feed refresh scheduled at midnight via Actions.</p>
+          <div class="actions">
+            <a class="btn" href="./arxiv/">Check latest <span class="chev">→</span></a>
+          </div>
+        </article>
+
+        <article class="card small">
+          <div class="label">Theme</div>
+          <h2>Minimal Sci-Fi</h2>
+          <p>Glass surfaces, subtle neon, low-noise layout.</p>
+          <div class="actions">
+            <a class="btn" href="#top">Top <span class="chev">↑</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <footer>
+      <div>© 2026 · Johnny Zhao · BST236</div>
+      <div>
+        <a href="./pacman/">Pac-Man</a> ·
+        <a href="./arxiv/">arXiv</a>
+      </div>
+    </footer>
+  </div>
 </body>
 </html>
