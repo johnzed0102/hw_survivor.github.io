@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>arXiv Feed | Johnny's Coding Blog</title>
+  <meta name="description" content="Auto-updating feed of latest arXiv papers on AI, NLP, and ML" />
+  <meta name="color-scheme" content="dark light" />
+  <link rel="stylesheet" href="./arxiv.css" />
+</head>
+
+<body>
+  <div class="fx"></div>
+
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="kicker"><span class="dot"></span> ARXIV FEED</div>
+        <h1>Latest Papers</h1>
+        <p class="subtitle">Auto-updated feed from arXiv (cs.AI, cs.CL, cs.LG) with keywords: table, structured data, time series, forecasting.</p>
+      </div>
+      <div class="meta">
+        <div class="pill" id="update-time">Loading...</div>
+      </div>
+    </header>
+
+    <section id="papers-container" class="papers-grid">
+      <div class="loading">Loading papers...</div>
+    </section>
+
+    <footer>
+      <div>
+        <a href="./">← Back to Home</a>
+      </div>
+      <div>
+        <a href="https://arxiv.org/">arXiv.org</a> ·
+        <a href="https://github.com/johnzed0102/hw_survivor.github.io">Source on GitHub</a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="./arxiv.js"></script>
+</body>
+</html>

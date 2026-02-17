@@ -1,0 +1,290 @@
+{
+  "metadata": {
+    "fetch_timestamp": "2026-02-17T21:21:16.733977Z",
+    "total_papers": 20
+  },
+  "papers": [
+    {
+      "abstract": "Diffusion models over discrete spaces have recently shown striking empirical success, yet their theoretical foundations remain incomplete. In this paper, we study the sampling efficiency of score-based discrete diffusion models under a continuous-time Markov chain (CTMC) formulation, with a focus on $τ$-leaping-based samplers. We establish sharp convergence guarantees for attaining $\\varepsilon$ accuracy in Kullback-Leibler (KL) divergence for both uniform and masking noising processes. For uniform discrete diffusion, we show that the $τ$-leaping algorithm achieves an iteration complexity of order $\\tilde O(d/\\varepsilon)$, with $d$ the ambient dimension of the target distribution, eliminating linear dependence on the vocabulary size $S$ and improving existing bounds by a factor of $d$; moreover, we establish a matching algorithmic lower bound showing that linear dependence on the ambient dimension is unavoidable in general. For masking discrete diffusion, we introduce a modified $τ$-leaping sampler whose convergence rate is governed by an intrinsic information-theoretic quantity, termed the effective total correlation, which is bounded by $d \\log S$ but can be sublinear or even constant for structured data. As a consequence, the sampler provably adapts to low-dimensional structure without prior knowledge or algorithmic modification, yielding sublinear convergence rates for various practical examples (such as hidden Markov models, image data, and random graphs). Our analysis requires no boundedness or smoothness assumptions on the score estimator beyond control of the score entropy loss.",
+      "arxiv_id": "2602.15008v1",
+      "authors": [
+        "Daniil Dmitriev",
+        "Zhihan Huang",
+        "Yuting Wei"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2602.15008v1",
+      "title": "Efficient Sampling with Discrete Diffusion Models: Sharp and Adaptive Guarantees",
+      "updated": "2026-02-16T18:48:17Z"
+    },
+    {
+      "abstract": "Geometric deep learning (GDL) deals with supervised learning on data domains that go beyond Euclidean structure, such as data with graph or manifold structure. Due to the demand that arises from application-related data, there is a need to identify further topological and geometric structures with which these use cases can be made accessible to machine learning. There are various techniques, such as spectral convolution, that form the basic building blocks for some convolutional neural network-like architectures on non-Euclidean data. In this paper, the concept of spectral convolution on orbifolds is introduced. This provides a building block for making learning on orbifold structured data accessible using GDL. The theory discussed is illustrated using an example from music theory.",
+      "arxiv_id": "2602.14997v1",
+      "authors": [
+        "Tim Mangliers",
+        "Bernhard Mössner",
+        "Benjamin Himpel"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2602.14997v1",
+      "title": "Spectral Convolution on Orbifolds for Geometric Deep Learning",
+      "updated": "2026-02-16T18:28:38Z"
+    },
+    {
+      "abstract": "We consider the general problem of learning a predictor that satisfies multiple objectives of interest simultaneously, a broad framework that captures a range of specific learning goals including calibration, regret, and multiaccuracy. We work in an online setting where the data distribution can change arbitrarily over time. Existing approaches to this problem aim to minimize the set of objectives over the entire time horizon in a worst-case sense, and in practice they do not necessarily adapt to distribution shifts. Earlier work has aimed to alleviate this problem by incorporating additional objectives that target local guarantees over contiguous subintervals. Empirical evaluation of these proposals is, however, scarce. In this article, we consider an alternative procedure that achieves local adaptivity by replacing one part of the multi-objective learning method with an adaptive online algorithm. Empirical evaluations on datasets from energy forecasting and algorithmic fairness show that our proposed method improves upon existing approaches and achieves unbiased predictions over subgroups, while remaining robust under distribution shift.",
+      "arxiv_id": "2602.14952v1",
+      "authors": [
+        "Jivat Neet Kaur",
+        "Isaac Gibbs",
+        "Michael I. Jordan"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2602.14952v1",
+      "title": "Locally Adaptive Multi-Objective Learning",
+      "updated": "2026-02-16T17:31:48Z"
+    },
+    {
+      "abstract": "This paper presents a physics-informed neural network approach for dynamic modeling of saturable synchronous machines, including cases with spatial harmonics. We introduce an architecture that incorporates gradient networks directly into the fundamental machine equations, enabling accurate modeling of the nonlinear and coupled electromagnetic constitutive relationship. By learning the gradient of the magnetic field energy, the model inherently satisfies energy balance (reciprocity conditions). The proposed architecture can universally approximate any physically feasible magnetic behavior and offers several advantages over lookup tables and standard machine learning models: it requires less training data, ensures monotonicity and reliable extrapolation, and produces smooth outputs. These properties further enable robust model inversion and optimal trajectory generation, often needed in control applications. We validate the proposed approach using measured and finite-element method (FEM) datasets from a 5.6-kW permanent-magnet (PM) synchronous reluctance machine. Results demonstrate accurate and physically consistent models, even with limited training data.",
+      "arxiv_id": "2602.14947v1",
+      "authors": [
+        "Junyi Li",
+        "Tim Foissner",
+        "Floran Martin",
+        "Antti Piippo",
+        "Marko Hinkkanen"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2602.14947v1",
+      "title": "Gradient Networks for Universal Magnetic Modeling of Synchronous Machines",
+      "updated": "2026-02-16T17:28:42Z"
+    },
+    {
+      "abstract": "Conformal prediction (CP) offers distribution-free marginal coverage guarantees under an exchangeability assumption, but these guarantees can fail if the data distribution shifts. We analyze the use of pseudo-calibration as a tool to counter this performance loss under a bounded label-conditional covariate shift model. Using tools from domain adaptation, we derive a lower bound on target coverage in terms of the source-domain loss of the classifier and a Wasserstein measure of the shift. Using this result, we provide a method to design pseudo-calibrated sets that inflate the conformal threshold by a slack parameter to keep target coverage above a prescribed level. Finally, we propose a source-tuned pseudo-calibration algorithm that interpolates between hard pseudo-labels and randomized labels as a function of classifier uncertainty. Numerical experiments show that our bounds qualitatively track pseudo-calibration behavior and that the source-tuned scheme mitigates coverage degradation under distribution shift while maintaining nontrivial prediction set sizes.",
+      "arxiv_id": "2602.14913v1",
+      "authors": [
+        "Farbod Siahkali",
+        "Ashwin Verma",
+        "Vijay Gupta"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2602.14913v1",
+      "title": "Coverage Guarantees for Pseudo-Calibrated Conformal Prediction under Distribution Shift",
+      "updated": "2026-02-16T16:48:39Z"
+    },
+    {
+      "abstract": "Large language models (LLMs) and multimodal models have become powerful general-purpose reasoning systems. However, radio-frequency (RF) signals, which underpin wireless systems, are still not natively supported by these models. Existing LLM-based approaches for telecom focus mainly on text and structured data, while conventional RF deep-learning models are built separately for specific signal-processing tasks, highlighting a clear gap between RF perception and high-level reasoning. To bridge this gap, we introduce RF-GPT, a radio-frequency language model (RFLM) that utilizes the visual encoders of multimodal LLMs to process and understand RF spectrograms. In this framework, complex in-phase/quadrature (IQ) waveforms are mapped to time-frequency spectrograms and then passed to pretrained visual encoders. The resulting representations are injected as RF tokens into a decoder-only LLM, which generates RF-grounded answers, explanations, and structured outputs. To train RF-GPT, we perform supervised instruction fine-tuning of a pretrained multimodal LLM using a fully synthetic RF corpus. Standards-compliant waveform generators produce wideband scenes for six wireless technologies, from which we derive time-frequency spectrograms, exact configuration metadata, and dense captions. A text-only LLM then converts these captions into RF-grounded instruction-answer pairs, yielding roughly 12,000 RF scenes and 0.625 million instruction examples without any manual labeling. Across benchmarks for wideband modulation classification, overlap analysis, wireless-technology recognition, WLAN user counting, and 5G NR information extraction, RF-GPT achieves strong multi-task performance, whereas general-purpose VLMs with no RF grounding largely fail.",
+      "arxiv_id": "2602.14833v1",
+      "authors": [
+        "Hang Zou",
+        "Yu Tian",
+        "Bohao Wang",
+        "Lina Bariah",
+        "Samson Lasaulce",
+        "Chongwen Huang",
+        "Mérouane Debbah"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2602.14833v1",
+      "title": "RF-GPT: Teaching AI to See the Wireless World",
+      "updated": "2026-02-16T15:24:56Z"
+    },
+    {
+      "abstract": "Large language models (LLMs) have been introduced to time series forecasting (TSF) to incorporate contextual knowledge beyond numerical signals. However, existing studies question whether LLMs provide genuine benefits, often reporting comparable performance without LLMs. We show that such conclusions stem from limited evaluation settings and do not hold at scale. We conduct a large-scale study of LLM-based TSF (LLM4TSF) across 8 billion observations, 17 forecasting scenarios, 4 horizons, multiple alignment strategies, and both in-domain and out-of-domain settings. Our results demonstrate that \\emph{LLM4TS indeed improves forecasting performance}, with especially large gains in cross-domain generalization. Pre-alignment outperforming post-alignment in over 90\\% of tasks. Both pretrained knowledge and model architecture of LLMs contribute and play complementary roles: pretraining is critical under distribution shifts, while architecture excels at modeling complex temporal dynamics. Moreover, under large-scale mixed distributions, a fully intact LLM becomes indispensable, as confirmed by token-level routing analysis and prompt-based improvements. Overall, Our findings overturn prior negative assessments, establish clear conditions under which LLMs are not only useful, and provide practical guidance for effective model design. We release our code at https://github.com/EIT-NLP/LLM4TSF.",
+      "arxiv_id": "2602.14744v1",
+      "authors": [
+        "Xin Qiu",
+        "Junlong Tong",
+        "Yirong Sun",
+        "Yunpu Ma",
+        "Wei Zhang",
+        "Xiaoyu Shen"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2602.14744v1",
+      "title": "Rethinking the Role of LLMs in Time Series Forecasting",
+      "updated": "2026-02-16T13:39:09Z"
+    },
+    {
+      "abstract": "We present LLMStructBench, a novel benchmark for evaluating Large Language Models (LLMs) on extracting structured data and generating valid JavaScript Object Notation (JSON) outputs from natural-language text. Our open dataset comprises diverse, manually verified parsing scenarios of varying complexity and enables systematic testing across 22 models and five prompting strategies. We further introduce complementary performance metrics that capture both token-level accuracy and document-level validity, facilitating rigorous comparison of model, size, and prompting effects on parsing reliability. In particular, we show that choosing the right prompting strategy is more important than standard attributes such as model size. This especially ensures structural validity for smaller or less reliable models but increase the number of semantic errors. Our benchmark suite is an step towards future research in the area of LLM applied to parsing or Extract, Transform and Load (ETL) applications.",
+      "arxiv_id": "2602.14743v1",
+      "authors": [
+        "Sönke Tenckhoff",
+        "Mario Koddenbrock",
+        "Erik Rodner"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2602.14743v1",
+      "title": "LLMStructBench: Benchmarking Large Language Model Structured Data Extraction",
+      "updated": "2026-02-16T13:37:58Z"
+    },
+    {
+      "abstract": "Finding optimal measurement operators is crucial for the performance of quantum reservoir computers (QRCs), since they employ a fixed quantum feature map. We formulate the training of both stateless (quantum extreme learning machines, QELMs) and stateful (memory dependent) QRCs in the framework of kernel ridge regression. This approach renders an optimal measurement operator that minimizes prediction error for a given reservoir and training dataset. For large qubit numbers, this method is more efficient than the conventional training of QRCs. We discuss efficiency and practical implementation strategies, including Pauli basis decomposition and operator diagonalization, to adapt the optimal observable to hardware constraints. Numerical experiments on image classification and time series prediction tasks demonstrate the effectiveness of this approach, which can also be applied to other quantum ML models.",
+      "arxiv_id": "2602.14677v1",
+      "authors": [
+        "Markus Gross",
+        "Hans-Martin Rieser"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2602.14677v1",
+      "title": "Kernel-based optimization of measurement operators for quantum reservoir computers",
+      "updated": "2026-02-16T12:04:42Z"
+    },
+    {
+      "abstract": "We explore the use of transformers for solving quadratic programs and how this capability benefits decision-making problems that involve covariance matrices. We first show that the linear attention mechanism can provably solve unconstrained QPs by tokenizing the matrix variables (e.g.~$A$ of the objective $\\frac{1}{2}x^\\top Ax+b^\\top x$) row-by-row and emulating gradient descent iterations. Furthermore, by incorporating MLPs, a transformer block can solve (i) $\\ell_1$-penalized QPs by emulating iterative soft-thresholding and (ii) $\\ell_1$-constrained QPs when equipped with an additional feedback loop. Our theory motivates us to introduce Time2Decide: a generic method that enhances a time series foundation model (TSFM) by explicitly feeding the covariance matrix between the variates. We empirically find that Time2Decide uniformly outperforms the base TSFM model for the classical portfolio optimization problem that admits an $\\ell_1$-constrained QP formulation. Remarkably, Time2Decide also outperforms the classical \"Predict-then-Optimize (PtO)\" procedure, where we first forecast the returns and then explicitly solve a constrained QP, in suitable settings. Our results demonstrate that transformers benefit from explicit use of second-order statistics, and this can enable them to effectively solve complex decision-making problems, like portfolio construction, in one forward pass.",
+      "arxiv_id": "2602.14506v1",
+      "authors": [
+        "Kutay Tire",
+        "Yufan Zhang",
+        "Ege Onur Taga",
+        "Samet Oymak"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2602.14506v1",
+      "title": "Covariance-Aware Transformers for Quadratic Programming and Decision Making",
+      "updated": "2026-02-16T06:39:24Z"
+    },
+    {
+      "abstract": "Automated scholarly paper review (ASPR) has entered the coexistence phase with traditional peer review, where artificial intelligence (AI) systems are increasingly incorporated into real-world manuscript evaluation. In parallel, research on automated and AI-assisted peer review has proliferated. Despite this momentum, empirical progress remains constrained by several critical limitations in existing datasets. While reviewers routinely evaluate figures, tables, and complex layouts to assess scientific claims, most existing datasets remain overwhelmingly text-centric. This bias is reinforced by a narrow focus on data from computer science venues. Furthermore, these datasets lack precise alignment between reviewer comments and specific manuscript versions, obscuring the iterative relationship between peer review and manuscript evolution. In response, we introduce FMMD, a multimodal and multidisciplinary open peer review dataset curated from F1000Research. The dataset bridges the current gap by integrating manuscript-level visual and structural data with version-specific reviewer reports and editorial decisions. By providing explicit alignment between reviewer comments and the exact article iteration under review, FMMD enables fine-grained analysis of the peer review lifecycle across diverse scientific domains. FMMD supports tasks such as multimodal issue detection and multimodal review comment generation. It provides a comprehensive empirical resource for the development of peer review research.",
+      "arxiv_id": "2602.14285v1",
+      "authors": [
+        "Zhenzhen Zhuang",
+        "Yuqing Fu",
+        "Jing Zhu",
+        "Zhangping Zhou",
+        "Jialiang Lin"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2602.14285v1",
+      "title": "FMMD: A multimodal open peer review dataset based on F1000Research",
+      "updated": "2026-02-15T19:36:05Z"
+    },
+    {
+      "abstract": "Causal inference, a critical tool for informing business decisions, traditionally relies heavily on structured data. However, in many real-world scenarios, such data can be incomplete or unavailable. This paper presents a framework that leverages transformer-based language models to perform causal inference using unstructured text. We demonstrate the effectiveness of our framework by comparing causal estimates derived from unstructured text against those obtained from structured data across population, group, and individual levels. Our findings show consistent results between the two approaches, validating the potential of unstructured text in causal inference tasks. Our approach extends the applicability of causal inference methods to scenarios where only textual data is available, enabling data-driven business decision-making when structured tabular data is scarce.",
+      "arxiv_id": "2602.14274v1",
+      "authors": [
+        "Boning Zhou",
+        "Ziyu Wang",
+        "Han Hong",
+        "Haoqi Hu"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2602.14274v1",
+      "title": "Integrating Unstructured Text into Causal Inference: Empirical Evidence from Real Data",
+      "updated": "2026-02-15T18:55:03Z"
+    },
+    {
+      "abstract": "With the rapid increase in residential heat pump (HP) installations, optimizing hot water production in households is essential, yet it faces major technical and scalability challenges. Adapting production to actual household needs requires accurate forecasting of hot water demand to ensure comfort and, most importantly, to reduce energy waste. However, the conventional approach of training separate machine learning models for each household becomes computationally expensive at scale, particularly in cloud-connected HP deployments. This study introduces DELTAiF, a transfer learning (TL) based framework that provides scalable and accurate prediction of household hot water consumption. By predicting large hot water usage events, such as showers, DELTAiF enables adaptive yet scalable hot water production at the household level. DELTAiF leverages learned knowledge from a representative household and fine-tunes it across others, eliminating the need to train separate machine learning models for each HP installation. This approach reduces overall training time by approximately 67 percent while maintaining high predictive accuracy values between 0.874 and 0.991, and mean absolute percentage error values between 0.001 and 0.017. The results show that TL is particularly effective when the source household exhibits regular consumption patterns, enabling hot water demand forecasting at scale.",
+      "arxiv_id": "2602.14267v1",
+      "authors": [
+        "Manal Rahal",
+        "Bestoun S. Ahmed",
+        "Roger Renström",
+        "Robert Stener"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2602.14267v1",
+      "title": "Cross-household Transfer Learning Approach with LSTM-based Demand Forecasting",
+      "updated": "2026-02-15T18:35:14Z"
+    },
+    {
+      "abstract": "Time Series Language Models (TSLMs) are emerging as unified models for reasoning over continuous signals in natural language. However, long-context retrieval remains a major limitation: existing models are typically trained and evaluated on short sequences, while real-world time-series sensor streams can span millions of datapoints. This mismatch requires precise temporal localization under strict computational constraints, a regime that is not captured by current benchmarks. We introduce TS-Haystack, a long-context temporal retrieval benchmark comprising ten task types across four categories: direct retrieval, temporal reasoning, multi-step reasoning and contextual anomaly. The benchmark uses controlled needle insertion by embedding short activity bouts into longer longitudinal accelerometer recordings, enabling systematic evaluation across context lengths ranging from seconds to 2 hours per sample. We hypothesize that existing TSLM time series encoders overlook temporal granularity as context length increases, creating a task-dependent effect: compression aids classification but impairs retrieval of localized events. Across multiple model and encoding strategies, we observe a consistent divergence between classification and retrieval behavior. Learned latent compression preserves or improves classification accuracy at compression ratios up to 176$\\times$, but retrieval performance degrades with context length, incurring in the loss of temporally localized information. These results highlight the importance of architectural designs that decouple sequence length from computational complexity while preserving temporal fidelity.",
+      "arxiv_id": "2602.14200v1",
+      "authors": [
+        "Nicolas Zumarraga",
+        "Thomas Kaar",
+        "Ning Wang",
+        "Maxwell A. Xu",
+        "Max Rosenblattl",
+        "Markus Kreft",
+        "Kevin O'Sullivan",
+        "Paul Schmiedmayer",
+        "Patrick Langer",
+        "Robert Jakob"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2602.14200v1",
+      "title": "TS-Haystack: A Multi-Scale Retrieval Benchmark for Time Series Language Models",
+      "updated": "2026-02-15T15:50:02Z"
+    },
+    {
+      "abstract": "Large language models (LLMs) have emerged as powerful tools for natural language table reasoning, where there are two main categories of methods. Prompt-based approaches rely on language-only inference or one-pass program generation without step-level verification. Agent-based approaches use tools in a closed loop, but verification is often local and backtracking is limited, allowing errors to propagate and increasing cost. Moreover, they rely on chain- or beam-style trajectories that are typically combinatorially redundant, leading to high token costs. In this paper, we propose TabTracer, an agentic framework that coordinates multi-step tool calls over intermediate table states, with explicit state tracking for verification and rollback. First, it enforces step-level verification with typed operations and lightweight numeric and format checks to provide reliable rewards and suppress hallucinations. Second, execution-feedback Monte Carlo Tree Search maintains a search tree of candidate table states and uses backpropagated reflection scores to guide UCB1 selection and rollback via versioned snapshots. Third, it reduces redundancy with budget-aware pruning, deduplication, and state hashing with a monotonicity gate to cut token cost. Comprehensive evaluation on TabFact, WikiTQ, and CRT datasets shows that TabTracer outperforms state-of-the-art baselines by up to 6.7% in accuracy while reducing token consumption by 59--84%.",
+      "arxiv_id": "2602.14089v1",
+      "authors": [
+        "Zhizhao Luo",
+        "Zhaojing Luo",
+        "Meihui Zhang",
+        "Rui Mao"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2602.14089v1",
+      "title": "TabTracer: Monte Carlo Tree Search for Complex Table Reasoning with Large Language Models",
+      "updated": "2026-02-15T10:39:43Z"
+    },
+    {
+      "abstract": "We study Neural Optimal Transport in infinite-dimensional Hilbert spaces. In non-regular settings, Semi-dual Neural OT often generates spurious solutions that fail to accurately capture target distributions. We analytically characterize this spurious solution problem using the framework of regular measures, which generalize Lebesgue absolute continuity in finite dimensions. To resolve ill-posedness, we extend the semi-dual framework via a Gaussian smoothing strategy based on Brownian motion. Our primary theoretical contribution proves that under a regular source measure, the formulation is well-posed and recovers a unique Monge map. Furthermore, we establish a sharp characterization for the regularity of smoothed measures, proving that the success of smoothing depends strictly on the kernel of the covariance operator. Empirical results on synthetic functional data and time-series datasets demonstrate that our approach effectively suppresses spurious solutions and outperforms existing baselines.",
+      "arxiv_id": "2602.14086v1",
+      "authors": [
+        "Jae-Hwan Choi",
+        "Jiwoo Yoon",
+        "Dohyun Kwon",
+        "Jaewoong Choi"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2602.14086v1",
+      "title": "Neural Optimal Transport in Hilbert Spaces: Characterizing Spurious Solutions and Gaussian Smoothing",
+      "updated": "2026-02-15T10:27:09Z"
+    },
+    {
+      "abstract": "Spatio-temporal traffic forecasting is a core component of intelligent transportation systems, supporting various downstream tasks such as signal control and network-level traffic management. In real-world deployments, forecasting models must operate under structural and observational uncertainties, conditions that are rarely considered in model design. Recent approaches achieve strong short-term predictive performance by tightly coupling spatial and temporal modeling, often at the cost of increased complexity and limited modularity. In contrast, efficient time-series models capture long-range temporal dependencies without relying on explicit network structure. We propose UniST-Pred, a unified spatio-temporal forecasting framework that first decouples temporal modeling from spatial representation learning, then integrates both through adaptive representation-level fusion. To assess robustness of the proposed approach, we construct a dataset based on an agent-based, microscopic traffic simulator (MATSim) and evaluate UniST-Pred under severe network disconnection scenarios. Additionally, we benchmark UniST-Pred on standard traffic prediction datasets, demonstrating its competitive performance against existing well-established models despite a lightweight design. The results illustrate that UniST-Pred maintains strong predictive performance across both real-world and simulated datasets, while also yielding interpretable spatio-temporal representations under infrastructure disruptions. The source code and the generated dataset are available at https://anonymous.4open.science/r/UniST-Pred-EF27",
+      "arxiv_id": "2602.14049v1",
+      "authors": [
+        "Yue Wang",
+        "Areg Karapetyan",
+        "Djellel Difallah",
+        "Samer Madanat"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2602.14049v1",
+      "title": "UniST-Pred: A Robust Unified Framework for Spatio-Temporal Traffic Forecasting in Transportation Networks Under Disruptions",
+      "updated": "2026-02-15T08:28:56Z"
+    },
+    {
+      "abstract": "Social simulation is critical for mining complex social dynamics and supporting data-driven decision making. LLM-based methods have emerged as powerful tools for this task by leveraging human-like social questionnaire responses to model group behaviors. Existing LLM-based approaches predominantly focus on group-level values at discrete time points, treating them as static snapshots rather than dynamic processes. However, group-level values are not fixed but shaped by long-term social changes. Modeling their dynamics is thus crucial for accurate social evolution prediction--a key challenge in both data mining and social science. This problem remains underexplored due to limited longitudinal data, group heterogeneity, and intricate historical event impacts. To bridge this gap, we propose a novel framework for group-level dynamic social simulation by integrating historical value trajectories into LLM-based human response modeling. We select China and the U.S. as representative contexts, conducting stratified simulations across four core sociodemographic dimensions (gender, age, education, income). Using the World Values Survey, we construct a multi-wave, group-level longitudinal dataset to capture historical value evolution, and then propose the first event-based prediction method for this task, unifying social events, current value states, and group attributes into a single framework. Evaluations across five LLM families show substantial gains: a maximum 30.88\\% improvement on seen questions and 33.97\\% on unseen questions over the Vanilla baseline. We further find notable cross-group heterogeneity: U.S. groups are more volatile than Chinese groups, and younger groups in both countries are more sensitive to external changes. These findings advance LLM-based social simulation and provide new insights for social scientists to understand and predict social value changes.",
+      "arxiv_id": "2602.14043v1",
+      "authors": [
+        "Qiankun Pi",
+        "Guixin Su",
+        "Jinliang Li",
+        "Mayi Xu",
+        "Xin Miao",
+        "Jiawei Jiang",
+        "Ming Zhong",
+        "Tieyun Qian"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2602.14043v1",
+      "title": "Beyond Static Snapshots: Dynamic Modeling and Forecasting of Group-Level Value Evolution with Large Language Models",
+      "updated": "2026-02-15T08:14:55Z"
+    },
+    {
+      "abstract": "Most time series foundation models are pretrained by directly predicting future observations, which often yields weakly structured latent representations that capture surface noise rather than coherent and predictable temporal dynamics. In this work, we introduce EIDOS, a foundation model family that shifts pretraining from future value prediction to latent-space predictive learning. We train a causal Transformer to predict the evolution of latent representations, encouraging the emergence of structured and temporally coherent latent states. To ensure stable targets for latent-space learning, we design a lightweight aggregation branch to construct target representations. EIDOS is optimized via a joint objective that integrates latent-space alignment, observational grounding to anchor representations to the input signal, and direct forecasting supervision. On the GIFT-Eval benchmark, EIDOS mitigates structural fragmentation in the representation space and achieves state-of-the-art performance. These results demonstrate that constraining models to learn predictable latent dynamics is a principled step toward more robust and reliable time series foundation models.",
+      "arxiv_id": "2602.14024v1",
+      "authors": [
+        "Xinxing Zhou",
+        "Qingren Yao",
+        "Yiji Zhao",
+        "Chenghao Liu",
+        "Flora Salim",
+        "Xiaojie Yuan",
+        "Yanlong Wen",
+        "Ming Jin"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2602.14024v1",
+      "title": "EIDOS: Latent-Space Predictive Learning for Time Series Foundation Models",
+      "updated": "2026-02-15T07:07:20Z"
+    },
+    {
+      "abstract": "Subseasonal-to-seasonal (S2S) forecasts play an essential role in providing a decision-critical weeks-to-months planning window for climate resilience and sustainability, yet a growing bottleneck is the last-mile gap: translating scientific forecasts into trusted, actionable climate services, requiring reliable multimodal understanding and decision-facing reasoning under uncertainty. Meanwhile, multimodal large language models (MLLMs) and corresponding agentic paradigms have made rapid progress in supporting various workflows, but it remains unclear whether they can reliably generate decision-making deliverables from operational service products (e.g., actionable signal comprehension, decision-making handoff, and decision analysis & planning) under uncertainty. We introduce S2SServiceBench, a multimodal benchmark for last-mile S2S climate services curated from an operational climate-service system to evaluate this capability. S2SServiceBenchcovers 10 service products with about 150+ expert-selected cases in total, spanning six application domains - Agriculture, Disasters, Energy, Finance, Health, and Shipping. Each case is instantiated at three service levels, yielding around 500 tasks and 1,000+ evaluation items across climate resilience and sustainability applications. Using S2SServiceBench, we benchmark state-of-the-art MLLMs and agents, and analyze performance across products and service levels, revealing persistent challenges in S2S service plot understanding and reasoning - namely, actionable signal comprehension, operationalizing uncertainty into executable handoffs, and stable, evidence-grounded analysis and planning for dynamic hazards-while offering actionable guidance for building future climate-service agents.",
+      "arxiv_id": "2602.14017v1",
+      "authors": [
+        "Chenyue Li",
+        "Wen Deng",
+        "Zhuotao Sun",
+        "Mengxi Jin",
+        "Hanzhe Cui",
+        "Han Li",
+        "Shentong Li",
+        "Man Kit Yu",
+        "Ming Long Lai",
+        "Yuhao Yang",
+        "Mengqian Lu",
+        "Binhang Yuan"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2602.14017v1",
+      "title": "S2SServiceBench: A Multimodal Benchmark for Last-Mile S2S Climate Services",
+      "updated": "2026-02-15T06:46:27Z"
+    }
+  ]
+}
