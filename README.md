@@ -1,1 +1,1 @@
-Visit my website: https://johnzed0102.github.io/hw_survivor.github.io/?utm_source=chatgpt.com
+Visit my website: https://johnzed0102.github.io/hw_survivor.github.io/
